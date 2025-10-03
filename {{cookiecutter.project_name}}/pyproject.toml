@@ -19,9 +19,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://{{cookiecutter.author_github_handle}}.github.io/{{cookiecutter.project_name}}/"
-Repository = "https://github.com/{{cookiecutter.author_github_handle}}/{{cookiecutter.project_name}}"
-Documentation = "https://{{cookiecutter.author_github_handle}}.github.io/{{cookiecutter.project_name}}/"
+Homepage = "https://{{cookiecutter.github_handle}}.github.io/{{cookiecutter.project_name}}/"
+Repository = "https://github.com/{{cookiecutter.github_handle}}/{{cookiecutter.project_name}}"
+Documentation = "https://{{cookiecutter.github_handle}}.github.io/{{cookiecutter.project_name}}/"
 
 [dependency-groups]
 dev = [
@@ -62,13 +62,15 @@ files = [
     "{{cookiecutter.project_slug}}"
     {%- endif -%}
 ]
-disallow_untyped_defs = true
-disallow_any_unimported = true
-no_implicit_optional = true
 check_untyped_defs = true
-warn_return_any = true
-warn_unused_ignores = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+no_implicit_optional = true
 show_error_codes = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
 {%- else -%}
 [tool.ty.environment]
 python = "./.venv"
@@ -115,6 +117,8 @@ select = [
     "RUF",
     # tryceratops
     "TRY",
+    # pep8-naming
+    "N",
 ]
 ignore = [
     # LineTooLong
